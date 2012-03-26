@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+	<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+	<ProductVersion>10.0.20506</ProductVersion>
+	<SchemaVersion>2.0</SchemaVersion>
+	<ProjectGuid>{F98FF486-F602-04B5-BE01-3695A65F8C70}</ProjectGuid>
+	<OutputType>Library</OutputType>
+	<AppDesignerFolder>Properties</AppDesignerFolder>
+	<RootNamespace></RootNamespace>
+	<AssemblyName>Assembly-CSharp-firstpass</AssemblyName>
+	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+	<FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+	<DebugSymbols>true</DebugSymbols>
+	<DebugType>full</DebugType>
+	<Optimize>false</Optimize>
+	<OutputPath>Temp\bin\Debug\</OutputPath>
+	<DefineConstants>DEBUG;TRACE;UNITY_3_5_0;UNITY_3_5;UNITY_EDITOR;ENABLE_PROFILER;UNITY_WEBPLAYER;ENABLE_GENERICS;ENABLE_DUCK_TYPING;ENABLE_TERRAIN;ENABLE_MOVIES;ENABLE_WEBCAM;ENABLE_MICROPHONE;ENABLE_NETWORK;ENABLE_CLOTH;ENABLE_WWW;ENABLE_SUBSTANCE</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+	<DebugType>pdbonly</DebugType>
+	<Optimize>true</Optimize>
+	<OutputPath>Temp\bin\Release\</OutputPath>
+	<DefineConstants>TRACE</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+	<Reference Include="System" />
+    <Reference Include="System.XML" />
+	<Reference Include="System.Core" />
+	<Reference Include="UnityEngine">
+	  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll</HintPath>
+	</Reference>
+	<Reference Include="UnityEditor">
+	  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll</HintPath>
+	</Reference>
+  </ItemGroup>
+  <ItemGroup>
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FSJointComponent.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerDebugViewUnity\FarseerDebugViewUnity.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Collision\Collision.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Collision\Distance.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Collision\DynamicTree.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Collision\DynamicTreeBroadPhase.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Collision\IBroadPhase.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Collision\QuadTree.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Collision\QuadTreeBroadPhase.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Collision\Shapes\ChainShape.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Collision\Shapes\CircleShape.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Collision\Shapes\EdgeShape.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Collision\Shapes\PolygonShape.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Collision\Shapes\Shape.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Collision\TimeOfImpact.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\ConvexHull\ChainHull.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\ConvexHull\GiftWrap.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\ConvexHull\Melkman.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\Curve.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\CurveKey.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\CurveKeyCollection.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\Decomposition\BayazitDecomposer.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\Decomposition\CDT\Delaunay\DelaunayTriangle.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\Decomposition\CDT\Delaunay\Sweep\AdvancingFront.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\Decomposition\CDT\Delaunay\Sweep\AdvancingFrontNode.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\Decomposition\CDT\Delaunay\Sweep\DTSweep.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\Decomposition\CDT\Delaunay\Sweep\DTSweepConstraint.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\Decomposition\CDT\Delaunay\Sweep\DTSweepContext.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\Decomposition\CDT\Delaunay\Sweep\DTSweepPointComparator.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\Decomposition\CDT\Delaunay\Sweep\PointOnEdgeException.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\Decomposition\CDT\ITriangulatable.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\Decomposition\CDT\Orientation.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\Decomposition\CDT\Polygon\Polygon.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\Decomposition\CDT\Polygon\PolygonPoint.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\Decomposition\CDT\Polygon\PolygonSet.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\Decomposition\CDT\Sets\ConstrainedPointSet.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\Decomposition\CDT\Sets\PointSet.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\Decomposition\CDT\TriangulationConstraint.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\Decomposition\CDT\TriangulationContext.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\Decomposition\CDT\TriangulationMode.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\Decomposition\CDT\TriangulationPoint.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\Decomposition\CDT\TriangulationUtil.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\Decomposition\CDT\Util\FixedArray3.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\Decomposition\CDT\Util\FixedBitArray3.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\Decomposition\CDT\Util\PointGenerator.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\Decomposition\CDT\Util\PolygonGenerator.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\Decomposition\CDTDecomposer.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\Decomposition\EarclipDecomposer.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\Decomposition\FlipcodeDecomposer.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\Decomposition\SeidelDecomposer.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\FMatrix.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\FVector2.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\FVector3.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\FixedArray.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\HashSet.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\LineTools.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\Math.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\MathHelper.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\Path.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\PathManager.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\PhysicsLogic\Explosion.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\PhysicsLogic\PhysicsLogic.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\PolygonManipulation\CuttingTools.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\PolygonManipulation\SimplifyTools.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\PolygonManipulation\YuPengClipper.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\PolygonTools.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\Serialization.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\TextureTools\MarchingSquares.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\TextureTools\TextureConverter.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Common\Vertices.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Controllers\AbstractForceController.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Controllers\BuoyancyController.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Controllers\Controller.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Controllers\GravityController.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Controllers\SimpleWindForce.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Controllers\VelocityLimitController.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\DebugView.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Dynamics\Body.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Dynamics\BreakableBody.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Dynamics\ContactManager.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Dynamics\Contacts\Contact.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Dynamics\Contacts\ContactSolver.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Dynamics\Fixture.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Dynamics\Island.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Dynamics\Joints\AngleJoint.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Dynamics\Joints\DistanceJoint.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Dynamics\Joints\FarseerJoint.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Dynamics\Joints\FixedAngleJoint.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Dynamics\Joints\FixedMouseJoint.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Dynamics\Joints\FrictionJoint.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Dynamics\Joints\GearJoint.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Dynamics\Joints\PrismaticJoint.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Dynamics\Joints\PulleyJoint.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Dynamics\Joints\RevoluteJoint.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Dynamics\Joints\RopeJoint.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Dynamics\Joints\SliderJoint.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Dynamics\Joints\WeldJoint.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Dynamics\Joints\WheelJoint.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Dynamics\TimeStep.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Dynamics\World.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Dynamics\WorldCallbacks.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Factories\BodyFactory.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Factories\FixtureFactory.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Factories\JointFactory.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Factories\LinkFactory.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Settings.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\Testbed\BridgeTest.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\Testbed\BuoyancyTest.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\Testbed\CCDTest.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\Testbed\RagdollTest.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\Testbed\Test.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\Testbed\TheoJansenTest.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\FSBodyComponent.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\FSBuoyancyComponent.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\FSDebugDrawComponent.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\FSDistanceJointComponent.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\FSHelper.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\FSPrismaticJointComponent.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\FSRevoluteJointComponent.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\FSShapeComponent.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\FSTestComponent.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\FSWorldComponent.cs" />
+     <None Include="Assets\Plugins\FarseerComponents\Base\FarseerDebugViewUnity\FDView.shader" />
+     <None Include="Assets\Tests\Shaders\Color.shader" />
+     <None Include="Assets\Tests\Shaders\Transparent Vertex Colored.shader" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+	   Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  
+</Project>
