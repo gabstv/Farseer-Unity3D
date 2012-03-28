@@ -25,6 +25,7 @@ using FarseerPhysics.Dynamics.Joints;
 using FarseerPhysics.Dynamics;
 using FarseerPhysics.Factories;
 
+[AddComponentMenu("FarseerUnity/Dynamics/Joints/Distance Joint Component")]
 public class FSDistanceJointComponent : FSJointComponent
 {
 	protected DistanceJoint joint;

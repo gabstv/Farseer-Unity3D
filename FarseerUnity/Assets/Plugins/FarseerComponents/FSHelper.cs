@@ -48,7 +48,7 @@ public static class FSHelper
 		len = input.magnitude;
 		outputV3.x = UnityEngine.Mathf.Cos(ang) * len;
 		outputV3.y = UnityEngine.Mathf.Sin(ang) * len;
-		UnityEngine.Debug.Log(outputV3);
+		//UnityEngine.Debug.Log(outputV3);
 		return outputV3 + localObj.localPosition;
 	}
 }

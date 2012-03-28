@@ -30,6 +30,7 @@ using Microsoft.Xna.Framework;
 
 using Category = FarseerPhysics.Dynamics.Category;
 
+[AddComponentMenu("FarseerUnity/Collision/Basic Shape Component")]
 public class FSShapeComponent : MonoBehaviour
 {
 	public ShapeType SType = ShapeType.Polygon;
@@ -125,7 +126,7 @@ public class FSShapeComponent : MonoBehaviour
 				return null;
 			
 			Vector3 scale = transform.lossyScale;
-			Debug.Log("SCALE: " + scale);
+			//Debug.Log("SCALE: " + scale);
 			
 			Vector3 v00l = new Vector3(-bc.size.x * 0.5f, -bc.size.y * 0.5f);
 			Vector3 v01l = new Vector3(bc.size.x * 0.5f, -bc.size.y * 0.5f);

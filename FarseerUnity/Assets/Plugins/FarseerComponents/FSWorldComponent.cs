@@ -29,6 +29,7 @@ using Microsoft.Xna.Framework;
 /// Farseer world component.
 /// SINGLETON
 /// </summary>
+[AddComponentMenu("FarseerUnity/Physics World Component")]
 public class FSWorldComponent : MonoBehaviour
 {
 	protected static FSWorldComponent instance;
@@ -36,6 +37,8 @@ public class FSWorldComponent : MonoBehaviour
 	private World world;
 	
 	public Vector2 Gravity = new Vector2(0f, -9.8f);
+	
+	protected int pwait = 2;
 
 	// Use this for initialization
 	void Awake ()
@@ -47,6 +50,11 @@ public class FSWorldComponent : MonoBehaviour
 	// Update is called once per frame
 	void FixedUpdate ()
 	{
+		if(pwait > 0)
+		{
+			pwait--;
+			return;
+		}
 		world.Step(Time.fixedDeltaTime);
 	}
 	

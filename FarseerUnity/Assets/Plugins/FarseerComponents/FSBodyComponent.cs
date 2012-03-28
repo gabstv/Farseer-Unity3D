@@ -25,6 +25,7 @@ using Microsoft.Xna.Framework;
 using FarseerPhysics.Dynamics;
 using FarseerPhysics.Factories;
 
+[AddComponentMenu("FarseerUnity/Dynamics/Body Component")]
 public class FSBodyComponent : MonoBehaviour
 {
 	protected Body body;
@@ -37,7 +38,7 @@ public class FSBodyComponent : MonoBehaviour
 		//body = BodyFactory.CreateRectangle(FSWorldComponent.PhysicsWorld, 1f, 1f, Density);
 		body = new Body(FSWorldComponent.PhysicsWorld);
 		FSShapeComponent[] shapecs = GetComponentsInChildren<FSShapeComponent>();
-		print("shapes " + name + ": " + shapecs.Length);
+		//print("shapes " + name + ": " + shapecs.Length);
 		foreach(FSShapeComponent shp in shapecs)
 		{
 			Fixture f = body.CreateFixture(shp.GetShape());
@@ -96,7 +97,6 @@ public class FSBodyComponent : MonoBehaviour
 		pos.y = body.Position.Y;
 		Vector3 rot = transform.rotation.eulerAngles;
 		rot.z = body.Rotation * Mathf.Rad2Deg;
-		Debug.Log("POS " + name + ": " + pos);
 		transform.position = pos;
 		transform.rotation = Quaternion.Euler(rot);
 	}

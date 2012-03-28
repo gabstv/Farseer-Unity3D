@@ -44,6 +44,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\FSEnums.cs" />
      <Compile Include="Assets\Plugins\FarseerComponents\Base\FSJointComponent.cs" />
      <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerDebugViewUnity\FarseerDebugViewUnity.cs" />
      <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Collision\Collision.cs" />
@@ -156,16 +157,21 @@
      <Compile Include="Assets\Plugins\FarseerComponents\Base\Testbed\RagdollTest.cs" />
      <Compile Include="Assets\Plugins\FarseerComponents\Base\Testbed\Test.cs" />
      <Compile Include="Assets\Plugins\FarseerComponents\Base\Testbed\TheoJansenTest.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\FSAngleJointComponent.cs" />
      <Compile Include="Assets\Plugins\FarseerComponents\FSBodyComponent.cs" />
      <Compile Include="Assets\Plugins\FarseerComponents\FSBuoyancyComponent.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\FSConcaveShapeComponent.cs" />
      <Compile Include="Assets\Plugins\FarseerComponents\FSDebugDrawComponent.cs" />
      <Compile Include="Assets\Plugins\FarseerComponents\FSDistanceJointComponent.cs" />
      <Compile Include="Assets\Plugins\FarseerComponents\FSHelper.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\FSMouseTest.cs" />
      <Compile Include="Assets\Plugins\FarseerComponents\FSPrismaticJointComponent.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\FSPulleyJointComponent.cs" />
      <Compile Include="Assets\Plugins\FarseerComponents\FSRevoluteJointComponent.cs" />
      <Compile Include="Assets\Plugins\FarseerComponents\FSShapeComponent.cs" />
      <Compile Include="Assets\Plugins\FarseerComponents\FSTestComponent.cs" />
      <Compile Include="Assets\Plugins\FarseerComponents\FSWorldComponent.cs" />
+     <Compile Include="Assets\Plugins\GizmosHelper.cs" />
      <None Include="Assets\Plugins\FarseerComponents\Base\FarseerDebugViewUnity\FDView.shader" />
      <None Include="Assets\Tests\Shaders\Color.shader" />
      <None Include="Assets\Tests\Shaders\Transparent Vertex Colored.shader" />

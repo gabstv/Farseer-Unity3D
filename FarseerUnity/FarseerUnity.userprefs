@@ -1,6 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Plugins/FarseerComponents/FSWorldComponent.cs">
+    <Files>
+      <File FileName="Assets/Plugins/FarseerComponents/Base/Testbed/Test.cs" Line="158" Column="4" />
+      <File FileName="Assets/Plugins/FarseerComponents/FSShapeComponent.cs" Line="33" Column="54" />
+      <File FileName="Assets/Plugins/FarseerComponents/FSWorldComponent.cs" Line="32" Column="56" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

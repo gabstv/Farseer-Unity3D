@@ -25,6 +25,7 @@ using FarseerPhysics.Dynamics.Joints;
 using FarseerPhysics.Dynamics;
 using FarseerPhysics.Factories;
 
+[AddComponentMenu("FarseerUnity/Dynamics/Joints/Revolute Joint Component")]
 public class FSRevoluteJointComponent : FSJointComponent
 {
 	protected RevoluteJoint joint;

@@ -23,6 +23,7 @@ using UnityEngine;
 using System.Collections;
 using FarseerPhysics.DebugViews;
 
+[AddComponentMenu("FarseerUnity/Camera/GL DebugDraw Component")]
 public class FSDebugDrawComponent : MonoBehaviour
 {
 	public Material GLMaterial;

@@ -25,6 +25,7 @@ using FarseerPhysics.Dynamics.Joints;
 using FarseerPhysics.Dynamics;
 using FarseerPhysics.Factories;
 
+[AddComponentMenu("FarseerUnity/Dynamics/Joints/Prismatic Joint Component")]
 public class FSPrismaticJointComponent : FSJointComponent
 {
 	protected PrismaticJoint joint;
@@ -35,8 +36,10 @@ public class FSPrismaticJointComponent : FSJointComponent
 	{
 		base.InitJoint ();
 		
-		Microsoft.Xna.Framework.FVector2 angleV = new Microsoft.Xna.Framework.FVector2(BodyB.PhysicsBody.Position.X - BodyA.PhysicsBody.Position.X, BodyB.PhysicsBody.Position.Y - BodyA.PhysicsBody.Position.Y);
-		angleV.Normalize();
+		//Microsoft.Xna.Framework.FVector2 angleV = new Microsoft.Xna.Framework.FVector2(BodyB.PhysicsBody.Position.X - BodyA.PhysicsBody.Position.X, BodyB.PhysicsBody.Position.Y - BodyA.PhysicsBody.Position.Y);
+		float ang = Mathf.Atan2(BodyB.PhysicsBody.Position.Y - BodyA.PhysicsBody.Position.Y, BodyB.PhysicsBody.Position.X - BodyA.PhysicsBody.Position.X);
+		Microsoft.Xna.Framework.FVector2 angleV = new Microsoft.Xna.Framework.FVector2(Mathf.Cos(ang), Mathf.Sin(ang));
+		//angleV.Normalize();
 		joint = FarseerPhysics.Factories.JointFactory.CreatePrismaticJoint(FSWorldComponent.PhysicsWorld, 
 			BodyA.PhysicsBody, 
 			BodyB.PhysicsBody,
