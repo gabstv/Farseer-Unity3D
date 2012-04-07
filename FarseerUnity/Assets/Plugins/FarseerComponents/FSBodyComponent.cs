@@ -44,17 +44,17 @@ public class FSBodyComponent : MonoBehaviour
 			Fixture f = body.CreateFixture(shp.GetShape());
 			f.Friction = shp.Friction;
 			f.Restitution = shp.Restitution;
-			if(shp.UseCollisionGroups)
+			if(shp.CollisionFilter == CollisionGroupDef.Manually)
 			{
-				f.CollisionCategories = Category.None;
-				for(int i = 0; i < shp.CollisionCategories.Length; i++)
+				f.CollisionCategories = shp.BelongsTo;
+				f.CollidesWith = shp.CollidesWith;
+			}
+			else if(shp.CollisionFilter == CollisionGroupDef.PresetFile)
+			{
+				if(shp.CollisionGroup != null)
 				{
-					f.CollisionCategories = f.CollisionCategories | shp.CollisionCategories[i];
-				}
-				f.CollidesWith = Category.None;
-				for(int i = 0; i < shp.CollidesWith.Length; i++)
-				{
-					f.CollidesWith = f.CollidesWith | shp.CollidesWith[i];
+					f.CollisionCategories = shp.CollisionGroup.BelongsTo;
+					f.CollidesWith = shp.CollisionGroup.CollidesWith;
 				}
 			}
 		}
@@ -68,17 +68,17 @@ public class FSBodyComponent : MonoBehaviour
 				Fixture f = body.CreateFixture(shape.GetShape());
 				f.Friction = shape.Friction;
 				f.Restitution = shape.Restitution;
-				if(shape.UseCollisionGroups)
+				if(shape.CollisionFilter == CollisionGroupDef.Manually)
 				{
-					f.CollisionCategories = Category.None;
-					for(int i = 0; i < shape.CollisionCategories.Length; i++)
+					f.CollisionCategories = shape.BelongsTo;
+					f.CollidesWith = shape.CollidesWith;
+				}
+				else if(shape.CollisionFilter == CollisionGroupDef.PresetFile)
+				{
+					if(shape.CollisionGroup != null)
 					{
-						f.CollisionCategories = shape.CollisionCategories[i] | f.CollisionCategories;
-					}
-					f.CollidesWith = Category.None;
-					for(int i = 0; i < shape.CollidesWith.Length; i++)
-					{
-						f.CollidesWith = shape.CollidesWith[i] | f.CollidesWith;
+						f.CollisionCategories = shape.CollisionGroup.BelongsTo;
+						f.CollidesWith = shape.CollisionGroup.CollidesWith;
 					}
 				}
 			}

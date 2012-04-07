@@ -45,9 +45,20 @@ public class FSShapeComponent : MonoBehaviour
 	/// </summary>
 	public Transform[] PolygonPoints;
 	
-	public bool UseCollisionGroups = false;
-	public Category[] CollisionCategories = new Category[1]{Category.Cat1};
-	public Category[] CollidesWith = new Category[1]{Category.All};
+	[HideInInspector]
+	public CollisionGroupDef CollisionFilter = CollisionGroupDef.None;
+	
+	[HideInInspector]
+	public FSCollisionGroup CollisionGroup;
+	
+	[HideInInspector]
+	public Category BelongsTo = Category.Cat1;
+	[HideInInspector]
+	public bool BelongsToFold = false;
+	[HideInInspector]
+	public Category CollidesWith = Category.All;
+	[HideInInspector]
+	public bool CollidesWithFold = false;
 
 	// Use this for initialization
 	void Start () {

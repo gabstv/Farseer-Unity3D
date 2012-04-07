@@ -44,7 +44,13 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Editor\CustomAssetUtility.cs" />
+     <Compile Include="Assets\Editor\FarseerComponents\Base\CollisionGroupAsset.cs" />
+     <Compile Include="Assets\Editor\FarseerComponents\Base\FSCollisionGroupEditor.cs" />
      <Compile Include="Assets\Editor\FarseerComponents\FSConcaveShapeCpEditor.cs" />
+     <Compile Include="Assets\Editor\FarseerComponents\FSShapeCpEditor.cs" />
+     <Compile Include="Assets\Editor\FarseerComponents\Settings.cs" />
+     <Compile Include="Assets\Editor\FarseerComponents\Windows\FSProjectSettingsWindow.cs" />
      <None Include="Assets\Plugins\FarseerComponents\Base\FarseerDebugViewUnity\FDView.shader" />
      <None Include="Assets\Tests\Shaders\Color.shader" />
      <None Include="Assets\Tests\Shaders\Transparent Vertex Colored.shader" />

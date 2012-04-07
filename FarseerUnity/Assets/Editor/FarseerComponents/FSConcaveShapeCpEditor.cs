@@ -2,22 +2,26 @@ using UnityEngine;
 using UnityEditor;
 using System.Collections;
 using System.Collections.Generic;
+using Category = FarseerPhysics.Dynamics.Category;
 
 [CustomEditor(typeof(FSConcaveShapeComponent))]
 public class FSConcaveShapeCpEditor : Editor
 {
 	public SerializedObject EditTarget;
+	protected FSConcaveShapeComponent target0;
+	protected FSCategorySettings categorySettings;
 	
 	public virtual void OnEnable()
 	{
-		FSConcaveShapeComponent target0 = target as FSConcaveShapeComponent;
+		target0 = target as FSConcaveShapeComponent;
 		EditTarget = new SerializedObject(target0);
+		FSSettings.Load();
+		categorySettings = FSSettings.CategorySettings;
 	}
 	
 	public override void OnInspectorGUI ()
 	{
 		EditorGUIUtility.LookLikeControls();
-		FSConcaveShapeComponent target0 = target as FSConcaveShapeComponent;
 		EditTarget.Update();
 		EditorGUILayout.BeginVertical();
 		EditorGUILayout.Separator();
@@ -92,10 +96,73 @@ public class FSConcaveShapeCpEditor : Editor
 		target0.Restitution = EditorGUILayout.FloatField("Restitution", target0.Restitution);
 		
 		EditorGUILayout.Separator();
-		target0.UseCollisionGroups = EditorGUILayout.Toggle("Use Collision Groups", target0.UseCollisionGroups);
-		if(target0.UseCollisionGroups)
+		//target0.UseCollisionGroups = EditorGUILayout.Toggle("Use Collision Groups", target0.UseCollisionGroups);
+		target0.CollisionFilter = (CollisionGroupDef)EditorGUILayout.EnumPopup("Filter Collision", target0.CollisionFilter);
+		if(target0.CollisionFilter == CollisionGroupDef.Manually)
 		{
-			SerializedProperty colcats = EditTarget.FindProperty("CollisionCategories");
+			bool flag0;
+			bool flag1;
+		
+			target0.BelongsToFold = EditorGUILayout.Foldout(target0.BelongsToFold, "Belongs To");
+			if(target0.BelongsToFold)
+			{
+				flag1 = (target0.BelongsTo & Category.All) == Category.All;
+				flag0 = EditorGUILayout.Toggle("All", flag1);
+				if(flag0 != flag1)
+				{
+					if(flag0)
+						target0.BelongsTo = Category.All;
+					else
+						target0.BelongsTo = Category.None;
+				}
+				//Cat1 to Cat31
+				for(int i = 0; i < categorySettings.Cat131.Length; i++)
+				{
+					flag1 = ((int)target0.BelongsTo & (int)Mathf.Pow(2f, (float)i)) != 0;
+					flag0 = EditorGUILayout.Toggle(categorySettings.Cat131[i], flag1);
+					
+					// something changed
+					if(flag0 != flag1)
+					{
+						if(flag0)
+							target0.BelongsTo |= (Category)((int)Mathf.Pow(2f, (float)i));
+						else
+							target0.BelongsTo ^= (Category)((int)Mathf.Pow(2f, (float)i));
+					}
+				}
+			}
+			
+			EditorGUILayout.Space();
+			
+			target0.CollidesWithFold = EditorGUILayout.Foldout(target0.CollidesWithFold, "Collides With");
+			if(target0.CollidesWithFold)
+			{
+				flag1 = (target0.CollidesWith & Category.All) == Category.All;
+				flag0 = EditorGUILayout.Toggle("All", flag1);
+				if(flag0 != flag1)
+				{
+					if(flag0)
+						target0.CollidesWith = Category.All;
+					else
+						target0.CollidesWith = Category.None;
+				}
+				//Cat1 to Cat31
+				for(int i = 0; i < categorySettings.Cat131.Length; i++)
+				{
+					flag1 = ((int)target0.CollidesWith & (int)Mathf.Pow(2f, (float)i)) != 0;
+					flag0 = EditorGUILayout.Toggle(categorySettings.Cat131[i], flag1);
+					
+					// something changed
+					if(flag0 != flag1)
+					{
+						if(flag0)
+							target0.CollidesWith |= (Category)((int)Mathf.Pow(2f, (float)i));
+						else
+							target0.CollidesWith ^= (Category)((int)Mathf.Pow(2f, (float)i));
+					}
+				}
+			}
+			/*SerializedProperty colcats = EditTarget.FindProperty("CollisionCategories");
 			EditorGUILayout.PropertyField(colcats);
 			if(colcats.isExpanded)
 			{
@@ -127,7 +194,11 @@ public class FSConcaveShapeCpEditor : Editor
 						break;
 					EditorGUILayout.PropertyField(colwith);
 				}
-			}
+			}*/
+		}
+		else if(target0.CollisionFilter == CollisionGroupDef.PresetFile)
+		{
+			target0.CollisionGroup = (FSCollisionGroup)EditorGUILayout.ObjectField("Group Preset File", target0.CollisionGroup, typeof(FSCollisionGroup), true);
 		}
 		EditorGUILayout.Separator();
 		bool convert = GUILayout.Button("Generate convex shapes");
@@ -161,9 +232,9 @@ public class FSConcaveShapeCpEditor : Editor
 		EditorGUILayout.EndVertical();
 	}
 	
-	protected virtual void ConvertToConvex(FSConcaveShapeComponent target0)
+	protected virtual void ConvertToConvex(FSConcaveShapeComponent targetCSC)
 	{
-		FSShapeComponent[] childcomps = target0.GetComponentsInChildren<FSShapeComponent>();
+		FSShapeComponent[] childcomps = targetCSC.GetComponentsInChildren<FSShapeComponent>();
 		if(childcomps != null)
 		{
 			if(childcomps.Length > 0)
@@ -181,11 +252,11 @@ public class FSConcaveShapeCpEditor : Editor
 		// convert vertices
 		FarseerPhysics.Common.Vertices concaveVertices = new FarseerPhysics.Common.Vertices();
 		
-		if(target0.PointInput == FSShapePointInput.Transform)
+		if(targetCSC.PointInput == FSShapePointInput.Transform)
 		{
-			for(int i = 0; i < target0.TransformPoints.Length; i++)
+			for(int i = 0; i < targetCSC.TransformPoints.Length; i++)
 			{
-				concaveVertices.Add(FSHelper.Vector3ToFVector2(target0.TransformPoints[i].localPosition));
+				concaveVertices.Add(FSHelper.Vector3ToFVector2(targetCSC.TransformPoints[i].localPosition));
 			}
 		}
 		List<FarseerPhysics.Common.Vertices> convexShapeVs = FarseerPhysics.Common.Decomposition.BayazitDecomposer.ConvexPartition(concaveVertices);
@@ -193,17 +264,18 @@ public class FSConcaveShapeCpEditor : Editor
 		for(int i = 0; i < convexShapeVs.Count; i++)
 		{
 			GameObject newConvShape = new GameObject("convexShape"+i.ToString());
-			newConvShape.transform.parent = target0.transform;
+			newConvShape.transform.parent = targetCSC.transform;
 			newConvShape.transform.localPosition = Vector3.zero;
 			newConvShape.transform.localRotation = Quaternion.Euler(Vector3.zero);
 			newConvShape.transform.localScale = Vector3.one;
 			FSShapeComponent shape0 = newConvShape.AddComponent<FSShapeComponent>();
-			shape0.CollidesWith = target0.CollidesWith;
-			shape0.UseCollisionGroups = target0.UseCollisionGroups;
-			shape0.CollisionCategories = target0.CollisionCategories;
-			shape0.Friction = target0.Friction;
-			shape0.Restitution = target0.Restitution;
-			shape0.Density = target0.Density;
+			shape0.CollidesWith = targetCSC.CollidesWith;
+			shape0.CollisionFilter = targetCSC.CollisionFilter;
+			shape0.BelongsTo = targetCSC.BelongsTo;
+			shape0.CollisionGroup = targetCSC.CollisionGroup;
+			shape0.Friction = targetCSC.Friction;
+			shape0.Restitution = targetCSC.Restitution;
+			shape0.Density = targetCSC.Density;
 			shape0.UseUnityCollider = false;
 			shape0.PolygonPoints = new Transform[convexShapeVs[i].Count];
 			for(int j = 0; j < convexShapeVs[i].Count; j++)

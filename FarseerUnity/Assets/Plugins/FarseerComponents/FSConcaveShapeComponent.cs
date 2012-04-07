@@ -11,9 +11,15 @@ public class FSConcaveShapeComponent : MonoBehaviour
 	public float Restitution = 0.5f;
 	public float Friction = 0.75f;
 	
-	public bool UseCollisionGroups = false;
-	public Category[] CollisionCategories = new Category[1]{Category.Cat1};
-	public Category[] CollidesWith = new Category[1]{Category.All};
+	[HideInInspector]
+	public CollisionGroupDef CollisionFilter = CollisionGroupDef.None;
+	
+	public FSCollisionGroup CollisionGroup;
+	
+	public Category BelongsTo = Category.Cat1;
+	public bool BelongsToFold = false;
+	public Category CollidesWith = Category.All;
+	public bool CollidesWithFold = false;
 	
 	[HideInInspector]
 	public Vector3[,] ConvertedVertices;
