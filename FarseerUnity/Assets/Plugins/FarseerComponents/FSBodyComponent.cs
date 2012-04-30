@@ -32,9 +32,13 @@ public class FSBodyComponent : MonoBehaviour
 	
 	public BodyType Type = BodyType.Dynamic;
 
-	// Use this for initialization
-	void Start ()
+	protected bool initialized = false;
+	
+	public virtual void Start ()
 	{
+		if(initialized)
+			return;
+		initialized = true;
 		//body = BodyFactory.CreateRectangle(FSWorldComponent.PhysicsWorld, 1f, 1f, Density);
 		body = new Body(FSWorldComponent.PhysicsWorld);
 		FSShapeComponent[] shapecs = GetComponentsInChildren<FSShapeComponent>();
@@ -44,6 +48,8 @@ public class FSBodyComponent : MonoBehaviour
 			Fixture f = body.CreateFixture(shp.GetShape());
 			f.Friction = shp.Friction;
 			f.Restitution = shp.Restitution;
+			if(shp.tag.Length > 0)
+				f.UserTag = shp.tag;
 			if(shp.CollisionFilter == CollisionGroupDef.Manually)
 			{
 				f.CollisionCategories = shp.BelongsTo;
@@ -68,6 +74,8 @@ public class FSBodyComponent : MonoBehaviour
 				Fixture f = body.CreateFixture(shape.GetShape());
 				f.Friction = shape.Friction;
 				f.Restitution = shape.Restitution;
+				if(shape.tag.Length > 0)
+					f.UserTag = shape.tag;
 				if(shape.CollisionFilter == CollisionGroupDef.Manually)
 				{
 					f.CollisionCategories = shape.BelongsTo;
@@ -87,6 +95,9 @@ public class FSBodyComponent : MonoBehaviour
 		body.BodyType = Type;
 		body.Position = new FVector2(transform.position.x, transform.position.y);
 		body.Rotation = transform.rotation.eulerAngles.z * Mathf.Deg2Rad;
+		if(this.tag.Length > 0)
+			body.UserTag = this.tag;
+		body.UserFSBodyComponent = this;
 	}
 	
 	// Update is called once per frame
@@ -101,10 +112,18 @@ public class FSBodyComponent : MonoBehaviour
 		transform.rotation = Quaternion.Euler(rot);
 	}
 	
+	protected virtual void OnDestroy()
+	{
+		// destroy this body on Farseer Physics
+		FSWorldComponent.PhysicsWorld.RemoveBody(PhysicsBody);
+	}
+	
 	public Body PhysicsBody
 	{
 		get
 		{
+			if(!initialized)
+				Start();
 			return body;
 		}
 	}

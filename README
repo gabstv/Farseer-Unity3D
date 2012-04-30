@@ -1,2 +1,8 @@
+2012-04-30
+Added:
+- Collision Events;
+- Joints;
+- Collision filtering support;
+
 2012-03-26
 I just added this project on git and removed all links to Sprite Manager 2.

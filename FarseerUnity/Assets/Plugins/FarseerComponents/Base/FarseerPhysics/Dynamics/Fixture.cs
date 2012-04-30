@@ -275,6 +275,15 @@ namespace FarseerPhysics.Dynamics
         /// </summary>
         /// <value>The user data.</value>
         public object UserData { get; set; }
+		
+		// GABS
+		/// <summary>
+		/// Gets or sets the user tag.
+		/// </summary>
+		/// <value>
+		/// The user tag.
+		/// </value>
+		public string UserTag { get; set; }
 
         /// <summary>
         /// User bits. Use this to store application flags or values specific to this fixture.

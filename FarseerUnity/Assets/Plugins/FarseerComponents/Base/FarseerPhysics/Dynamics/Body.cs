@@ -476,6 +476,24 @@ namespace FarseerPhysics.Dynamics
         /// </summary>
         /// <value>The user data.</value>
         public object UserData { get; set; }
+		
+		// GABS
+		/// <summary>
+		/// Gets or sets the user tag.
+		/// </summary>
+		/// <value>
+		/// The user tag.
+		/// </value>
+		public string UserTag { get; set; }
+		
+		// GABS
+		/// <summary>
+		/// Gets or sets the user FSBodyComponent.
+		/// </summary>
+		/// <value>
+		/// The user FS body component.
+		/// </value>
+		public FSBodyComponent UserFSBodyComponent { get; set; }
 
         /// <summary>
         /// Get the world body origin position.

@@ -18,7 +18,7 @@
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_3_5_0;UNITY_3_5;UNITY_EDITOR;ENABLE_PROFILER;UNITY_WEBPLAYER;ENABLE_GENERICS;ENABLE_DUCK_TYPING;ENABLE_TERRAIN;ENABLE_MOVIES;ENABLE_WEBCAM;ENABLE_MICROPHONE;ENABLE_NETWORK;ENABLE_CLOTH;ENABLE_WWW;ENABLE_SUBSTANCE</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_3_5_1;UNITY_3_5;UNITY_EDITOR;ENABLE_PROFILER;UNITY_WEBPLAYER;ENABLE_GENERICS;ENABLE_DUCK_TYPING;ENABLE_TERRAIN;ENABLE_MOVIES;ENABLE_WEBCAM;ENABLE_MICROPHONE;ENABLE_NETWORK;ENABLE_CLOTH;ENABLE_WWW;ENABLE_SUBSTANCE</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -152,6 +152,7 @@
      <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Factories\JointFactory.cs" />
      <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Factories\LinkFactory.cs" />
      <Compile Include="Assets\Plugins\FarseerComponents\Base\FarseerPhysics\Settings.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\Base\Temp\TestCoreCollisionEvents.cs" />
      <Compile Include="Assets\Plugins\FarseerComponents\Base\Testbed\BridgeTest.cs" />
      <Compile Include="Assets\Plugins\FarseerComponents\Base\Testbed\BuoyancyTest.cs" />
      <Compile Include="Assets\Plugins\FarseerComponents\Base\Testbed\CCDTest.cs" />
@@ -171,6 +172,7 @@
      <Compile Include="Assets\Plugins\FarseerComponents\FSRevoluteJointComponent.cs" />
      <Compile Include="Assets\Plugins\FarseerComponents\FSShapeComponent.cs" />
      <Compile Include="Assets\Plugins\FarseerComponents\FSTestComponent.cs" />
+     <Compile Include="Assets\Plugins\FarseerComponents\FSUserDataComponent.cs" />
      <Compile Include="Assets\Plugins\FarseerComponents\FSWorldComponent.cs" />
      <Compile Include="Assets\Plugins\GizmosHelper.cs" />
      <None Include="Assets\Plugins\FarseerComponents\Base\FarseerDebugViewUnity\FDView.shader" />

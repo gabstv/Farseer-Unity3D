@@ -39,8 +39,7 @@ public class FSWorldComponent : MonoBehaviour
 	public Vector2 Gravity = new Vector2(0f, -9.8f);
 	
 	protected int pwait = 2;
-
-	// Use this for initialization
+	
 	void Awake ()
 	{
 		instance = this;

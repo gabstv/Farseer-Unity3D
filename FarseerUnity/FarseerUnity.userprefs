@@ -1,11 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Editor/FarseerComponents/Windows/FSProjectSettingsWindow.cs">
-    <Files>
-      <File FileName="Assets/Plugins/FarseerComponents/FSBodyComponent.cs" Line="81" Column="29" />
-      <File FileName="Assets/Editor/FarseerComponents/Windows/FSProjectSettingsWindow.cs" Line="16" Column="52" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
