@@ -1,0 +1,95 @@
+/*
+* FarseerUnity based on Farseer Physics Engine port:
+* Copyright (c) 2012 Gabriel Ochsenhofer https://github.com/gabstv/Farseer-Unity3D
+* 
+* Original source Box2D:
+* Copyright (c) 2011 Ian Qvist http://farseerphysics.codeplex.com/
+* 
+* This software is provided 'as-is', without any express or implied 
+* warranty.  In no event will the authors be held liable for any damages 
+* arising from the use of this software. 
+* Permission is granted to anyone to use this software for any purpose, 
+* including commercial applications, and to alter it and redistribute it 
+* freely, subject to the following restrictions: 
+* 1. The origin of this software must not be misrepresented; you must not 
+* claim that you wrote the original software. If you use this software 
+* in a product, an acknowledgment in the product documentation would be 
+* appreciated but is not required. 
+* 2. Altered source versions must be plainly marked as such, and must not be 
+* misrepresented as being the original software. 
+* 3. This notice may not be removed or altered from any source distribution. 
+*/
+using UnityEngine;
+using System.Collections;
+using FarseerPhysics.Dynamics.Joints;
+using FarseerPhysics.Dynamics;
+using FarseerPhysics.Factories;
+
+[AddComponentMenu("FarseerUnity/Dynamics/Joints/Distance Joint Component")]
+public class FSDistanceJointComponent : FSJointComponent
+{
+  public DistanceJoint joint;
+	/// <summary>
+	/// To alter this value at runtime, use SetLocalAnchorA(value)
+	/// </summary>
+	public Vector2 LocalAnchorA = Vector2.zero;
+	
+	public float Frequency = 60f;
+	/// <summary>
+	/// To alter this value at runtime, use SetLocalAnchorB(value)
+	/// </summary>
+	public Vector2 LocalAnchorB = Vector2.zero;
+	
+	public override void InitJoint ()
+	{
+		base.InitJoint ();
+		Vector3 p0 = new Vector3(LocalAnchorA.x, LocalAnchorA.y, -5f);
+		Vector3 p1 = new Vector3(LocalAnchorB.x, LocalAnchorB.y, -5f);
+		joint = FarseerPhysics.Factories.JointFactory.CreateDistanceJoint(FSWorldComponent.PhysicsWorld, 
+			BodyA.PhysicsBody, 
+			BodyB.PhysicsBody,
+			FSHelper.Vector3ToFVector2(p0),
+			FSHelper.Vector3ToFVector2(p1)
+			);
+		joint.CollideConnected = CollideConnected;
+		joint.Frequency = Frequency;
+		
+		//joint.DampingRatio = 0.5f;
+	}
+	
+	public override void Update ()
+	{
+		base.Update ();
+	}
+	/// <summary>
+	/// Sets the local anchor b at runtime.
+	/// </summary>
+	/// <param name='value'>
+	/// Value.
+	/// </param>
+	public void SetLocalAnchorB(Vector2 value)
+	{
+		LocalAnchorB = value;
+		joint.LocalAnchorB = FSHelper.Vector2ToFVector2(value);
+	}
+	/// <summary>
+	/// Sets the local anchor a at runtime.
+	/// </summary>
+	/// <param name='value'>
+	/// Value.
+	/// </param>
+	public void SetLocalAnchorA(Vector2 value)
+	{
+		LocalAnchorA = value;
+		joint.LocalAnchorA = FSHelper.Vector2ToFVector2(value);
+	}
+	
+	public override void OnDrawGizmos()
+	{
+		if(BodyA == null || BodyB == null)
+			return;
+		Gizmos.color = Color.cyan;
+		Gizmos.DrawLine(BodyA.transform.position+new Vector3(LocalAnchorA.x,LocalAnchorA.y,BodyA.transform.position.z), 
+			BodyB.transform.position+new Vector3(LocalAnchorB.x,LocalAnchorB.y,BodyB.transform.position.z));
+	}
+}
